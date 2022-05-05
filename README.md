@@ -1,36 +1,4 @@
-# Social_Distance_Controller
-const int trigPin = 9;
-const int echoPin = 10;
-long duration;
-int distanceCm, distanceInch;
-void setup()
-{
-Serial.begin(9600); 
-pinMode(trigPin, OUTPUT);
-pinMode(echoPin, INPUT);
-pinMode(11,OUTPUT);
-pinMode(12,OUTPUT);
-}
-void loop() {
-digitalWrite(trigPin, LOW);
-delayMicroseconds(2);
-digitalWrite(trigPin, HIGH);
-delayMicroseconds(10);
-digitalWrite(trigPin, LOW);
-duration = pulseIn(echoPin, HIGH);
-distanceCm= duration*0.034/2;
-distanceInch = duration*0.0133/2;
-Serial.println("Distance: ");
-Serial.println(distanceCm);
-
-if(distanceCm < 100)
-{
-  digitalWrite(11,HIGH);
-  digitalWrite(12,HIGH);
-}
-else 
-{
-  digitalWrite(11,LOW);
-  digitalWrite(12,LOW);
-}
-}
+Social Distance Countroller using Arduino
+Developed a device using Nano Arduino to maintain the social distance in a queue. 
+If any person obeys the certain distance then buzzer gives the sound.
+To make a social distancing alarm I'm using Nano Arduino Uno, Ultrasonic sensor, BUZZER, and LED. An ultrasonic sensor that has an Echo pin. It is connected to Arduino digital pin number 10 and the Trig is connected Digital Pin 9. Talking about LED and Buzzer Negative is connected Together and buzzer positive wire will be connected to a (D12) pin and LED positive wire will be connected to the (D11) pin.
